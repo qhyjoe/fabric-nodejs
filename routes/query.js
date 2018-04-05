@@ -69,6 +69,13 @@ function query(arg) {
                 fcn: 'getPostNum',
                 args: [arg.attribute, arg.operator, arg.value]
             };
+        }else{
+            const request = {
+                chaincodeId: dataJson.options1.chaincode_id,
+                txId: transaction_id,
+                fcn: 'query',
+                args: ['a']
+            };
         }
         return channel.queryByChaincode(request);
     }).then(function (query_responses) {
@@ -87,8 +94,6 @@ function query(arg) {
     }).catch(function (err) {
         console.error("Caught Error", err);
     });
-
-    return data;
 
 };
 function getKeyFilesInDir(dir) {
