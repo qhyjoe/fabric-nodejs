@@ -23,11 +23,11 @@ function query(arg) {
 //以上代码指定了当前用户的私钥，证书等基本信息
         return sdkUtils.newKeyValueStore({
             path: "/tmp/fabric-client-stateStore/"
-        }).then(function () {
+        }).then(function (store) {
             client.setStateStore(store)
             return client.createUser(createUserOpt)
         })
-    }).then(function () {
+    }).then(function (user) {
         channel = client.newChannel(options.channel_id);
 
         var data = fs.readFileSync(options.tls_cacerts);
@@ -100,7 +100,6 @@ function getKeyFilesInDir(dir) {
             keyFiles.push(filePath)
         }
     })
-    console.log(files);
     return keyFiles
 };
 module.exports = query;
