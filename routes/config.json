@@ -1,37 +1,28 @@
 {
-	"network": {
-		"orderer": {
-			"url": "grpcs://192.168.2.150:7050",
-			"server-hostname": "orderer.example.com",
-			"tls_cacerts": "../../fixtures/channel/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tlscacerts/example.com-cert.pem"
-		},
-		"org1": {
-			"name": "peerOrg1",
-			"mspid": "Org1MSP",
-			"ca": {
-				"url": "https://192.168.2.150:7054",
-				"name": "ca-org1"
-			},
-			"peer1": {
-				"requests": "grpcs://192.168.2.150:7051",
-				"events": "grpcs://192.168.2.150:7053",
-				"server-hostname": "peer0.org1.example.com",
-				"tls_cacerts": "../../fixtures/channel/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tlscacerts/org1.example.com-cert.pem"
-			}
-		},
-		"org2": {
-			"name": "peerOrg2",
-			"mspid": "Org2MSP",
-			"ca": {
-				"url": "https://192.168.2.150:8054",
-				"name": "ca-org2"
-			},
-			"peer1": {
-				"requests": "grpcs://192.168.2.150:8051",
-				"events": "grpcs://192.168.2.150:8053",
-				"server-hostname": "peer0.org2.example.com",
-				"tls_cacerts": "../../fixtures/channel/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tlscacerts/org2.example.com-cert.pem"
-			}
-		}
-	}
+  "options": {
+    "options1": {
+      "user_id": "Admin@org1.example.com",
+      "msp_id": "Org1MSP",
+      "channel_id": "mychannel",
+      "chaincode_id": "mycc",
+      "network_url": "grpcs://192.168.2.150:7051",
+      "network_url_desc":"因为启用了TLS，所以是grpcs,如果没有启用TLS，那么就是grpc",
+      "privateKeyFolder": "/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore",
+      "signedCert": "/opt/gopath/go/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
+      "tls_cacerts": "/home/studyzy/go/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt",
+      "server_hostname": "peer0.org1.example.com"
+    },
+    "options2": {
+      "user_id": "Admin@org1.example.com",
+      "msp_id": "Org1MSP",
+      "channel_id": "mychannel",
+      "chaincode_id": "mycc",
+      "network_url": "grpcs://192.168.2.150:7051",
+      "network_url_desc":"因为启用了TLS，所以是grpcs,如果没有启用TLS，那么就是grpc",
+      "privateKeyFolder": "/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore",
+      "signedCert": "/opt/gopath/go/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
+      "tls_cacerts": "/home/studyzy/go/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt",
+      "server_hostname": "peer0.org1.example.com"
+    }
+  }
 }
