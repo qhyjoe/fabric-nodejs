@@ -81,7 +81,7 @@ function query(arg) {
         return channel.queryByChaincode(request);
     }).then(function (query_responses) {
         console.log("returned from query");
-        console.log( query_responses);
+        console.log("query_responses"+JSON.stringify(query_responses));
         if (!query_responses.length) {
             console.log("No payloads were returned from query");
         } else {
