@@ -48,29 +48,30 @@ function query(arg) {
         var transaction_id = client.newTransactionID();
         console.log("Assigning transaction_id: ", transaction_id._transaction_id);
 //构造查询request参数
+        var request;
         if (arg.func == "queryPost") {
-            const request = {
+            request = {
                 chaincodeId: dataJson.options1.chaincode_id,
                 txId: transaction_id,
                 fcn: 'queryPost',
                 args: ["POST" + arg.id]
             };
         } else if (arg.func == "richQueryPosts") {
-            const request = {
+            request = {
                 chaincodeId: dataJson.options1.chaincode_id,
                 txId: transaction_id,
                 fcn: 'richQueryPosts',
                 args: [arg.attribute, arg.operator, arg.value]
             };
         } else if (arg.func == "getPostNum") {
-            const request = {
+            request = {
                 chaincodeId: dataJson.options1.chaincode_id,
                 txId: transaction_id,
                 fcn: 'getPostNum',
                 args: [arg.attribute, arg.operator, arg.value]
             };
         }else{
-            const request = {
+            request = {
                 chaincodeId: dataJson.options1.chaincode_id,
                 txId: transaction_id,
                 fcn: 'query',
