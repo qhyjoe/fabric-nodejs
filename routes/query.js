@@ -2,14 +2,14 @@ var Common = require('./common');
 var fs = require('fs');
 var url = require('url');
 var path = require('path');
-var client = require('fabric-client');
+var Client = require('fabric-client');
 var sdkUtils = require('fabric-client/lib/utils');
 function query(arg) {
     'use strict';
     var common = new Common();
     var data = common.init();
     var channel = {};
-
+    var client=new Client();
     Promise.resolve().then(function () {
         console.log("Load privateKey and signedCert");
         var createUserOpt = {
