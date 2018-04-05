@@ -81,6 +81,7 @@ function query(arg) {
         return channel.queryByChaincode(request);
     }).then(function (query_responses) {
         console.log("returned from query");
+        console.log( query_responses);
         if (!query_responses.length) {
             console.log("No payloads were returned from query");
         } else {
@@ -89,9 +90,9 @@ function query(arg) {
         if (query_responses[0] instanceof Error) {
             console.error("error from query = ", query_responses[0]);
         }
-        res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end(query_responses[0]);
-        console.log("Response is ", query_responses[0].toString());//打印返回的结果
+        // res.writeHead(200, {'Content-Type': 'text/plain'});
+        // res.end(query_responses[0]);
+        // console.log("Response is ", query_responses[0].toString());//打印返回的结果
     }).catch(function (err) {
         console.error("Caught Error", err);
     });
