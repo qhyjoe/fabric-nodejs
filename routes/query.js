@@ -78,10 +78,10 @@ function query(arg) {
                 args: ['a']
             };
         }
-        // console.log("query request"+JSON.stringify(request));
-        // var d=channel.queryByChaincode(request)
-        // console.log(JSON.stringify(d));
-        // return d;
+        console.log("query request"+JSON.stringify(request));
+        var d=channel.queryByChaincode(request)
+        console.log(JSON.stringify(d));
+        return d;
     }).then(function (query_responses) {
         console.log("returned from query");
         console.log("query_responses"+JSON.stringify(query_responses));
