@@ -4,20 +4,23 @@ var url = require('url');
 var path = require('path');
 var Client = require('fabric-client');
 var sdkUtils = require('fabric-client/lib/utils');
+
 function query(arg) {
     'use strict';
+    console.log(arg);
     var common = new Common();
-    var data = common.init();
+    var dataJson = common.init();
+
     var channel = {};
     var client=new Client();
     Promise.resolve().then(function () {
         console.log("Load privateKey and signedCert");
         var createUserOpt = {
-            username: data.options1.user_id,
-            mspid: data.options1.msp_id,
+            username: dataJson.options1.user_id,
+            mspid: dataJson.options1.msp_id,
             cryptoContent: {
-                privateKey: getKeyFilesInDir(data.options1.privateKeyFolder)[0],
-                signedCert: data.options1.signedCert
+                privateKey: getKeyFilesInDir(dataJson.options1.privateKeyFolder)[0],
+                signedCert: dataJson.options1.signedCert
             }
         }
 //以上代码指定了当前用户的私钥，证书等基本信息
@@ -28,10 +31,9 @@ function query(arg) {
             return client.createUser(createUserOpt)
         })
     }).then(function (user) {
-        channel = client.newChannel(data.options1.channel_id);
-
-        var data = fs.readFileSync(data.options1.tls_cacerts);
-        var peer = client.newPeer(data.options1.network_url,
+        channel = client.newChannel(dataJson.options1.channel_id);
+        var data = fs.readFileSync(dataJson.options1.tls_cacerts);
+        var peer = client.newPeer(dataJson.options1.network_url,
             {
                 pem: Buffer.from(data).toString(),
                 'ssl-target-name-override': data.options1.server_hostname
@@ -48,21 +50,21 @@ function query(arg) {
 //构造查询request参数
         if (arg.func == "queryPost") {
             const request = {
-                chaincodeId: data.options1.chaincode_id,
+                chaincodeId: dataJson.options1.chaincode_id,
                 txId: transaction_id,
                 fcn: 'queryPost',
                 args: ["POST" + arg.id]
             };
         } else if (arg.func == "richQueryPosts") {
             const request = {
-                chaincodeId: data.options1.chaincode_id,
+                chaincodeId: dataJson.options1.chaincode_id,
                 txId: transaction_id,
                 fcn: 'richQueryPosts',
                 args: [arg.attribute, arg.operator, arg.value]
             };
         } else if (arg.func == "getPostNum") {
             const request = {
-                chaincodeId: data.options1.chaincode_id,
+                chaincodeId: dataJson.options1.chaincode_id,
                 txId: transaction_id,
                 fcn: 'getPostNum',
                 args: [arg.attribute, arg.operator, arg.value]
