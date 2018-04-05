@@ -79,7 +79,9 @@ function query(arg) {
             };
         }
         console.log("query request"+request)
-        return channel.queryByChaincode(request);
+        var d=channel.queryByChaincode(request)
+        console.log(d);
+        return d;
     }).then(function (query_responses) {
         console.log("returned from query");
         console.log("query_responses"+JSON.stringify(query_responses));
