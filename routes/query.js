@@ -28,13 +28,13 @@ function query(arg) {
             return client.createUser(createUserOpt)
         })
     }).then(function (user) {
-        channel = client.newChannel(options.channel_id);
+        channel = client.newChannel(data.options1.channel_id);
 
-        var data = fs.readFileSync(options.tls_cacerts);
-        var peer = client.newPeer(options.network_url,
+        var data = fs.readFileSync(data.options1.tls_cacerts);
+        var peer = client.newPeer(data.options1.network_url,
             {
                 pem: Buffer.from(data).toString(),
-                'ssl-target-name-override': options.server_hostname
+                'ssl-target-name-override': data.options1.server_hostname
             }
         );
         peer.setName("peer0");
@@ -48,21 +48,21 @@ function query(arg) {
 //构造查询request参数
         if (arg.func == "queryPost") {
             const request = {
-                chaincodeId: options.chaincode_id,
+                chaincodeId: data.options1.chaincode_id,
                 txId: transaction_id,
                 fcn: 'queryPost',
                 args: ["POST" + arg.id]
             };
         } else if (arg.func == "richQueryPosts") {
             const request = {
-                chaincodeId: options.chaincode_id,
+                chaincodeId: data.options1.chaincode_id,
                 txId: transaction_id,
                 fcn: 'richQueryPosts',
                 args: [arg.attribute, arg.operator, arg.value]
             };
         } else if (arg.func == "getPostNum") {
             const request = {
-                chaincodeId: options.chaincode_id,
+                chaincodeId: data.options1.chaincode_id,
                 txId: transaction_id,
                 fcn: 'getPostNum',
                 args: [arg.attribute, arg.operator, arg.value]
