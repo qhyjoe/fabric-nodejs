@@ -36,7 +36,7 @@ function query(arg) {
         var peer = client.newPeer(dataJson.options1.network_url,
             {
                 pem: Buffer.from(data).toString(),
-                'ssl-target-name-override': data.options1.server_hostname
+                'ssl-target-name-override': dataJson.options1.server_hostname
             }
         );
         peer.setName("peer0");
