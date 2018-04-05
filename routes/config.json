@@ -8,8 +8,8 @@
       "network_url": "grpcs://192.168.2.150:7051",
       "network_url_desc":"因为启用了TLS，所以是grpcs,如果没有启用TLS，那么就是grpc",
       "privateKeyFolder": "/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore",
-      "signedCert": "/opt/gopath/go/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
-      "tls_cacerts": "/home/studyzy/go/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt",
+      "signedCert": "/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
+      "tls_cacerts": "/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt",
       "server_hostname": "peer0.org1.example.com"
     },
     "options2": {
@@ -20,8 +20,8 @@
       "network_url": "grpcs://192.168.2.150:7051",
       "network_url_desc":"因为启用了TLS，所以是grpcs,如果没有启用TLS，那么就是grpc",
       "privateKeyFolder": "/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore",
-      "signedCert": "/opt/gopath/go/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
-      "tls_cacerts": "/home/studyzy/go/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt",
+      "signedCert": "/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem",
+      "tls_cacerts": "/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt",
       "server_hostname": "peer0.org1.example.com"
     }
   }
