@@ -1,5 +1,9 @@
 var Common = require('./common');
 var fs = require('fs');
+var url = require('url');
+var path = require('path');
+var client = require('fabric-client');
+var sdkUtils = require('fabric-client/lib/utils');
 function query(arg) {
     'use strict';
     var common = new Common();
@@ -88,6 +92,7 @@ function query(arg) {
 function getKeyFilesInDir(dir) {
 //该函数用于找到keystore目录下的私钥文件的路径
     var files = fs.readdirSync(dir)
+    console.log(files);
     var keyFiles = []
     files.forEach(function (file_name, index) {
         var filePath = path.join(dir, file_name)
@@ -95,6 +100,7 @@ function getKeyFilesInDir(dir) {
             keyFiles.push(filePath)
         }
     })
+    console.log(files);
     return keyFiles
 };
 module.exports = query;
